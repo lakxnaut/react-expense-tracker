@@ -16,6 +16,7 @@ const ExpenseItem = (props) => {
             <ExpenseDate date={date} />
             <ExpenseDetails title={title} amount={amount} />
             <div className='location'>{location}</div>
+            <button>Delete Expense</button>
         </Card>
     )
 }
