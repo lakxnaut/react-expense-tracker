@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './Card';
 import ExpenseDate from './ExpenseDate';
 import ExpenseDetails from './ExpenseDetails';
@@ -8,15 +8,22 @@ const ExpenseItem = (props) => {
 
     const { title, amount, location, date } = props;
 
+    const [expense, setExpense] = useState(amount);
+
+
+
+    function expenseHandler() {
+        setExpense('100$')
+    }
 
 
     return (
         <Card className='expense-item'>
 
             <ExpenseDate date={date} />
-            <ExpenseDetails title={title} amount={amount} />
+            <ExpenseDetails title={title} amount={expense} />
             <div className='location'>{location}</div>
-            <button>Delete Expense</button>
+            <button onClick={expenseHandler}>Delete Expense</button>
         </Card>
     )
 }
