@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <h2 className="lets" style={{ textAlign: "center" }}>Let's get started!</h2>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses expenses={expenses} />
 

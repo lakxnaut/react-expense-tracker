@@ -4,9 +4,9 @@ import ExpenseItem from './ExpenseItem';
 import './Expenses.css'
 import ExpensesFilter from './ExpensesFilter';
 
-function yearSelectHandler(year) {
-    console.log(year);
-}
+// function yearSelectHandler(year) {
+//     console.log(year);
+// }
 
 const Expenses = (props) => {
     const { expenses } = props;
@@ -18,12 +18,32 @@ const Expenses = (props) => {
 
     }
 
+    // const values = expenses.filter(Value => Value.date.getFullYear().toString() === Dropyear)
+    // console.log(values);
+
+    const filteredExpenses = expenses.filter(Value => Value.date.getFullYear().toString() === Dropyear)
+
     return (
         <div>
 
             <Card className='expenses'>
                 <ExpensesFilter selectedYear={Dropyear} onYearSelect={yearSelectHandler} />
-                {expenses.map(item => <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date} location={item.LocationOfExpenditure} />)}</Card>
+                {filteredExpenses.length === 0 && (<p style={{ fontSize: '23px', color: 'white', textAlign: 'center' }}>NO RECORDS FOUND</p>)}
+
+                {
+                    filteredExpenses.length > 0 && (
+                        filteredExpenses.map(item => <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date} location={item.LocationOfExpenditure} />)
+                    )
+
+                }
+
+
+
+
+
+            </Card>
+
+
 
         </div>
 
