@@ -3,6 +3,7 @@ import Card from '../UI/Card';
 import ExpenseItem from './ExpenseItem';
 import './Expenses.css'
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesList from './ExpensesList';
 
 // function yearSelectHandler(year) {
 //     console.log(year);
@@ -28,14 +29,7 @@ const Expenses = (props) => {
 
             <Card className='expenses'>
                 <ExpensesFilter selectedYear={Dropyear} onYearSelect={yearSelectHandler} />
-                {filteredExpenses.length === 0 && (<p style={{ fontSize: '23px', color: 'white', textAlign: 'center' }}>NO RECORDS FOUND</p>)}
-
-                {
-                    filteredExpenses.length > 0 && (
-                        filteredExpenses.map(item => <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date} location={item.LocationOfExpenditure} />)
-                    )
-
-                }
+                <ExpensesList item={filteredExpenses} />
 
 
 
