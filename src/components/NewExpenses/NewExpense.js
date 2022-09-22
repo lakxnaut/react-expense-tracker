@@ -6,7 +6,7 @@ const NewExpense = (props) => {
 
     function saveExpenseDataHandler(expenses) {
         const expense = { ...expenses }
-        console.log(expense);
+        // console.log(expense);
 
 
         props.onAddExpense(expense)
